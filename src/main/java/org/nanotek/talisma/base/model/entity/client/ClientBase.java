@@ -6,8 +6,8 @@ import javax.persistence.MappedSuperclass;
 
 import org.nanotek.talisma.base.Base;
 
-@Inheritance(strategy = InheritanceType.JOINED)
 @MappedSuperclass
+@Inheritance(strategy = InheritanceType.JOINED)
 public class ClientBase implements Base<Long> {
 
 	private static final long serialVersionUID = 3528112001835616977L;
