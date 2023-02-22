@@ -5,6 +5,7 @@ import javax.validation.constraints.NotEmpty;
 
 import org.nanotek.talisma.base.Base;
 import org.nanotek.talisma.base.ClientUpdateValidation;
+import org.nanotek.talisma.base.model.entity.EntityBase;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -12,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @Valid
 @JsonInclude(Include.NON_NULL)
-public class Client implements Base<String>{
+public class Client extends EntityBase implements Base<String>{
 
 	private static final long serialVersionUID = 8550700982126003512L;
 
