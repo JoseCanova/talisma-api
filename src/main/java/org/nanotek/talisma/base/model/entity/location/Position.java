@@ -8,6 +8,8 @@ public class Position implements Base<Long> {
 	
 	protected Long id;
 	
+	protected Altitude altitude;
+	
 	public Position() {
 		super();
 	}
@@ -18,6 +20,14 @@ public class Position implements Base<Long> {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Altitude getAltitude() {
+		return altitude;
+	}
+
+	public void setAltitude(Altitude altitude) {
+		this.altitude = altitude;
 	}
 
 }
