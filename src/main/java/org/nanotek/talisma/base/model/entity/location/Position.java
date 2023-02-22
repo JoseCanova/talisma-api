@@ -1,6 +1,7 @@
 package org.nanotek.talisma.base.model.entity.location;
 
 import org.nanotek.talisma.base.Base;
+import org.nanotek.talisma.base.model.entity.location.momentum.Speed;
 
 public class Position implements Base<Long> {
 
@@ -9,6 +10,8 @@ public class Position implements Base<Long> {
 	protected Long id;
 	
 	protected Altitude altitude;
+	
+	protected Speed speed;
 	
 	public Position() {
 		super();
