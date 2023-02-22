@@ -6,9 +6,11 @@ import java.util.Optional;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import org.nanotek.talisma.base.Base;
 import org.nanotek.talisma.base.model.entity.EntityBase;
+import org.nanotek.talisma.base.model.entity.client.PersonClient;
 
 @Entity
 public class Person extends EntityBase implements Base<Long> {
@@ -34,11 +36,15 @@ public class Person extends EntityBase implements Base<Long> {
 	
 	protected String phoneNumber;
 
+	@OneToOne(mappedBy = "person")
+	protected PersonClient personClient;
+	
 	private static final long serialVersionUID = 1501332631909086902L;
 
 	public Person() {
 		super();
 	}
+	
 
 	@Override
 	public Long getId() {
