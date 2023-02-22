@@ -4,7 +4,6 @@ import java.util.function.Supplier;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.context.i18n.LocaleContext;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -14,14 +13,17 @@ public class EntityExceptionSupplierFactory {
 	private MessageSource messageSource; 
 	
 	public EntityExceptionSupplierFactory() {
+		super();
 	}
 
-	public  Supplier<SysmatEntityException> applyMessage(String messageKey) {
+	public  Supplier<BaseException> applyMessage(String messageKey) {
 		Holder<String> holder = new Holder<>();
 		try {
 			String message = messageSource.getMessage(messageKey, null, LocaleContext.getCurrentLocale());
 			holder.put(message);
-		}catch(Exception ex) {}
-	    return () -> new SysmatEntityException(holder.get().orElse(""));
+		}catch(Exception ex) {
+			throw new BaseException(ex);
+		}
+	    return () -> new BaseException(holder.get().orElse(""));
 	}
 }
