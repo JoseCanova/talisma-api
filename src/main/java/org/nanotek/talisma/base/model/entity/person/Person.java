@@ -5,12 +5,10 @@ import java.time.LocalDate;
 import org.nanotek.talisma.base.Base;
 import org.nanotek.talisma.base.model.entity.client.Client;
 
-public class PersonData implements Base<Long> {
+public class Person implements Base<Long> {
 
 	protected Long id;
 
-	protected Client client; 
-	
 	protected LocalDate birthDate;  
 	
 	protected LocalDate deathDate; 
@@ -31,21 +29,13 @@ public class PersonData implements Base<Long> {
 
 	private static final long serialVersionUID = 1501332631909086902L;
 
-	public PersonData() {
+	public Person() {
 		super();
 	}
 
 	@Override
 	public Long getId() {
 		return id;
-	}
-
-	public Client getClient() {
-		return client;
-	}
-
-	public void setClient(Client client) {
-		this.client = client;
 	}
 
 	public void setId(Long id) {
