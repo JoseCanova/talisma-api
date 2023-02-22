@@ -1,12 +1,19 @@
 package org.nanotek.talisma.base.model.entity.person;
 
 import java.time.LocalDate;
+import java.util.Objects;
+import java.util.Optional;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 import org.nanotek.talisma.base.Base;
-import org.nanotek.talisma.base.model.entity.client.Client;
+import org.nanotek.talisma.base.model.entity.EntityBase;
 
-public class Person implements Base<Long> {
+@Entity
+public class Person extends EntityBase implements Base<Long> {
 
+	@Id
 	protected Long id;
 
 	protected LocalDate birthDate;  
@@ -112,6 +119,17 @@ public class Person implements Base<Long> {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Integer theHash = Objects.hash(id , firstName , lastName );
+		return Optional.ofNullable(obj).map (v-> theHash.equals(obj.hashCode())).orElse(false);
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(id , firstName , lastName );
 	}
 	
 }
