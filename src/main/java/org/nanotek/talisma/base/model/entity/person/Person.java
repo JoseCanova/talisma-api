@@ -9,11 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 import org.nanotek.talisma.base.Base;
+import org.nanotek.talisma.base.IdMutator;
 import org.nanotek.talisma.base.model.entity.EntityBase;
 import org.nanotek.talisma.base.model.entity.client.PersonClient;
 
 @Entity
-public class Person extends EntityBase implements Base<Long> {
+public class Person extends EntityBase implements Base<Long> , IdMutator<Long> {
 
 	@Id
 	protected Long id;
@@ -36,6 +37,8 @@ public class Person extends EntityBase implements Base<Long> {
 	
 	protected String phoneNumber;
 
+	protected Gender gender;
+	
 	@OneToOne(mappedBy = "person")
 	protected PersonClient personClient;
 	
@@ -136,6 +139,26 @@ public class Person extends EntityBase implements Base<Long> {
 	@Override
 	public int hashCode() {
 		return Objects.hash(id , firstName , lastName );
+	}
+
+
+	public Gender getGender() {
+		return gender;
+	}
+
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
+
+	public PersonClient getPersonClient() {
+		return personClient;
+	}
+
+
+	public void setPersonClient(PersonClient personClient) {
+		this.personClient = personClient;
 	}
 	
 }

@@ -1,9 +1,10 @@
 package org.nanotek.talisma.base.model.entity.location;
 
 import org.nanotek.talisma.base.Base;
+import org.nanotek.talisma.base.IdMutator;
 import org.nanotek.talisma.base.model.entity.location.momentum.Speed;
 
-public class Position implements Base<Long> {
+public class Position implements Base<Long> , IdMutator<Long>{
 
 	private static final long serialVersionUID = 3271007485326951018L;
 	
